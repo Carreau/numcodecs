@@ -8,15 +8,16 @@
         ],
         "extra_compile_args": [
             "-msse2",
-            "-mavx2"
+            "-mavx2",
+            "-stdlib=libc++"
         ],
         "include_dirs": [
             "c-blosc/internal-complibs/zstd-1.4.4",
             "c-blosc/internal-complibs/zstd-1.4.4/common",
-            "c-blosc/internal-complibs/zstd-1.4.4/deprecated",
-            "c-blosc/internal-complibs/zstd-1.4.4/dictBuilder",
             "c-blosc/internal-complibs/zstd-1.4.4/compress",
             "c-blosc/internal-complibs/zstd-1.4.4/decompress",
+            "c-blosc/internal-complibs/zstd-1.4.4/deprecated",
+            "c-blosc/internal-complibs/zstd-1.4.4/dictBuilder",
             "c-blosc/internal-complibs/zstd-1.4.4/dll",
             "c-blosc/internal-complibs/zstd-1.4.4/legacy"
         ],
@@ -24,32 +25,32 @@
         "sources": [
             "numcodecs/zstd.pyx",
             "c-blosc/internal-complibs/zstd-1.4.4/common/debug.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/common/pool.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/common/error_private.c",
             "c-blosc/internal-complibs/zstd-1.4.4/common/entropy_common.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/common/zstd_common.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/common/error_private.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/common/fse_decompress.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/common/pool.c",
             "c-blosc/internal-complibs/zstd-1.4.4/common/threading.c",
             "c-blosc/internal-complibs/zstd-1.4.4/common/xxhash.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/common/fse_decompress.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_lazy.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstdmt_compress.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_compress_sequences.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_opt.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_compress.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/common/zstd_common.c",
             "c-blosc/internal-complibs/zstd-1.4.4/compress/fse_compress.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/compress/huf_compress.c",
             "c-blosc/internal-complibs/zstd-1.4.4/compress/hist.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_fast.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_ldm.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_double_fast.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/compress/huf_compress.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_compress.c",
             "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_compress_literals.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/decompress/zstd_ddict.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_compress_sequences.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_double_fast.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_fast.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_lazy.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_ldm.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstd_opt.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/compress/zstdmt_compress.c",
             "c-blosc/internal-complibs/zstd-1.4.4/decompress/huf_decompress.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/decompress/zstd_ddict.c",
             "c-blosc/internal-complibs/zstd-1.4.4/decompress/zstd_decompress.c",
             "c-blosc/internal-complibs/zstd-1.4.4/decompress/zstd_decompress_block.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/dictBuilder/fastcover.c",
-            "c-blosc/internal-complibs/zstd-1.4.4/dictBuilder/divsufsort.c",
             "c-blosc/internal-complibs/zstd-1.4.4/dictBuilder/cover.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/dictBuilder/divsufsort.c",
+            "c-blosc/internal-complibs/zstd-1.4.4/dictBuilder/fastcover.c",
             "c-blosc/internal-complibs/zstd-1.4.4/dictBuilder/zdict.c"
         ]
     },
@@ -857,7 +858,7 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "numcodecs/zstd.pyx",
-  ".tox/py38/lib/python3.8/site-packages/Cython/Includes/cpython/type.pxd",
+  ".tox/py37/lib/python3.7/site-packages/Cython/Includes/cpython/type.pxd",
   "numcodecs/compat_ext.pxd",
 };
 /* NoFastGil.proto */

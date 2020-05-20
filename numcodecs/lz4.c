@@ -9,7 +9,8 @@
         ],
         "extra_compile_args": [
             "-msse2",
-            "-mavx2"
+            "-mavx2",
+            "-stdlib=libc++"
         ],
         "include_dirs": [
             "numcodecs",
@@ -18,8 +19,8 @@
         "name": "numcodecs.lz4",
         "sources": [
             "numcodecs/lz4.pyx",
-            "c-blosc/internal-complibs/lz4-1.9.2/lz4hc.c",
-            "c-blosc/internal-complibs/lz4-1.9.2/lz4.c"
+            "c-blosc/internal-complibs/lz4-1.9.2/lz4.c",
+            "c-blosc/internal-complibs/lz4-1.9.2/lz4hc.c"
         ]
     },
     "module_name": "numcodecs.lz4"
@@ -827,7 +828,7 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "numcodecs/lz4.pyx",
-  ".tox/py38/lib/python3.8/site-packages/Cython/Includes/cpython/type.pxd",
+  ".tox/py37/lib/python3.7/site-packages/Cython/Includes/cpython/type.pxd",
   "numcodecs/compat_ext.pxd",
 };
 /* NoFastGil.proto */

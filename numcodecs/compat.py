@@ -7,7 +7,7 @@ from functools import reduce
 import numpy as np
 
 
-def ensure_ndarray(buf):
+def ensure_ndarray(buf, dtype=None):
     """Convenience function to coerce `buf` to a numpy array, if it is not already a
     numpy array.
 
@@ -45,7 +45,10 @@ def ensure_ndarray(buf):
         mem = memoryview(buf)
 
         # instantiate array from memoryview, ensures no copy
-        arr = np.array(mem, copy=False)
+        if dtype:
+            arr = np.array(mem, copy=False, dtype=dtype)
+        else:
+            arr = np.array(mem, copy=False)
 
     return arr
 
