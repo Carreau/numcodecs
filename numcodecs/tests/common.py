@@ -125,7 +125,7 @@ def check_encode_decode_partial(arr, codec, precision=None):
     # encoding should support any object exporting the buffer protocol
 
     ITEM_SIZE = arr.dtype.itemsize
-    start, nitems = 0, 10
+    start, nitems = 5, 10
     compare_arr = arr[start:start+nitems]
     # test encoding of numpy array
     enc = codec.encode(arr)

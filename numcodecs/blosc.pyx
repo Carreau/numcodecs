@@ -427,7 +427,8 @@ def decompress_partial(source, start, nitems, typesize, encoding_size, dest=None
         int ret
         int nbitems_bytes = nitems * typesize
         int nbitems_blosc = nbitems_bytes // encoding_size
-        int start_blosc = start*typesize // encoding_size
+        int start_bytes = (start*typesize)
+        int start_blosc = start_bytes // encoding_size
         char *source_ptr
         char *dest_ptr
         Buffer source_buffer
@@ -435,7 +436,7 @@ def decompress_partial(source, start, nitems, typesize, encoding_size, dest=None
         size_t nbytes, cbytes, blocksize
 
     assert nbitems_bytes % encoding_size == 0, "the encoding size is not a divisor of the number of bytes we want"
-    assert start_blosc % encoding_size == 0, "the start size is not a divisor of the start offset bytes we want"
+    assert start_bytes % encoding_size == 0, "the start size is not a divisor of the start offset bytes we want {} {} {}".format(start_blosc, encoding_size, start_blosc % encoding_size)
     
     source_buffer = Buffer(source, PyBUF_ANY_CONTIGUOUS)
     source_ptr = source_buffer.ptr
